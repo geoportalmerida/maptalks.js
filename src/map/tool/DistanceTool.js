@@ -6,6 +6,7 @@ import Marker from '../../geometry/Marker';
 import Label from '../../geometry/Label';
 import VectorLayer from '../../layer/VectorLayer';
 import DrawTool from './DrawTool';
+import { t } from '../../lang/lang';
 
 /**
  * @property {options} options
@@ -186,12 +187,7 @@ class DistanceTool extends DrawTool {
             length = map.getProjection().measureLength(toMeasure);
         }
         this._lastMeasure = length;
-        let units;
-        if (this.options['language'] === 'zh-CN') {
-            units = [' 米', ' 公里', ' 英尺', ' 英里'];
-        } else {
-            units = [' m', ' km', ' feet', ' mile'];
-        }
+        const units = [t('TX_METERS'), t('TX_KILOMETERS'), t('TX_FEETS'), t('TX_MILES')];
         let content = '';
         const decimals = this.options['decimalPlaces'];
         if (this.options['metric']) {
@@ -252,7 +248,7 @@ class DistanceTool extends DrawTool {
         });
         //调用_setPrjCoordinates主要是为了解决repeatworld下，让它能标注在其他世界的问题
         marker._setPrjCoordinates(prjCoord);
-        const content = (this.options['language'] === 'zh-CN' ? '起点' : 'start');
+        const content = t('TX_START');
         const startLabel = new Label(content, param['coordinate'], this.options['labelOptions']);
         startLabel._setPrjCoordinates(prjCoord);
         this._lastVertex = startLabel;

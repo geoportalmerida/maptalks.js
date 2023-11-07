@@ -1,5 +1,6 @@
 import Size from '../../geo/Size';
 import { Geometry, Marker, Label } from '../../geometry';
+import { t } from '../../lang/lang';
 import DistanceTool from './DistanceTool';
 
 /**
@@ -16,7 +17,7 @@ import DistanceTool from './DistanceTool';
 const options = {
     'mode': 'Polygon',
     'symbol': {
-        'lineColor': '#000000',
+        'lineColor': '#2563eb',
         'lineWidth': 2,
         'lineOpacity': 1,
         'lineDasharray': '',
@@ -74,12 +75,7 @@ class AreaTool extends DistanceTool {
             area = map.getProjection().measureArea(toMeasure);
         }
         this._lastMeasure = area;
-        let units;
-        if (this.options['language'] === 'zh-CN') {
-            units = [' 平方米', ' 平方公里', ' 平方英尺', ' 平方英里'];
-        } else {
-            units = [' sq.m', ' sq.km', ' sq.ft', ' sq.mi'];
-        }
+        const units = [t('TX_SQUARE_METERS'), t('TX_SQUARE_KILOMETERS'), t('TX_SQUARE_FEETS'), t('TX_SQUARE_MILES')];
         let content = '';
         const decimals = this.options['decimalPlaces'];
         if (this.options['metric']) {

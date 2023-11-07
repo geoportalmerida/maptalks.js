@@ -1,0 +1,13 @@
+{
+  "TX_SQUARE_METERS": "m²",
+  "TX_SQUARE_KILOMETERS": "km²",
+  "TX_SQUARE_FEETS": "ft²",
+  "TX_SQUARE_MILES": "mi²",
+
+  "TX_METERS": "m",
+  "TX_KILOMETERS": "km",
+  "TX_FEETS": "ft",
+  "TX_MILES": "mi",
+
+  "TX_START": "Inicio"
+}
